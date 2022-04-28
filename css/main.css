@@ -1,6 +1,11 @@
 html {
   font-size: 62.5%;
 }
+@media (max-width: 700px) {
+  html {
+    font-size: 50%;
+  }
+}
 
 body {
   font-family: "Be Vietnam Pro", sans-serif;
@@ -36,6 +41,11 @@ body {
   padding: 1.5rem 0;
   border-radius: 1rem;
 }
+@media (max-width: 700px) {
+  .player-picker-container__player {
+    width: 38rem;
+  }
+}
 .player-picker-container__title {
   font-weight: bold;
   text-transform: uppercase;
@@ -61,12 +71,22 @@ body {
   align-self: center;
   width: 100px;
 }
+@media (max-width: 700px) {
+  .player-picker-container__player-x img, .player-picker-container__player-o img {
+    width: 50%;
+  }
+}
 .player-picker-container .active-player {
   background: #a2bac3;
   padding: 0.7rem 1rem;
   border-radius: 1.2rem;
   -webkit-box-shadow: 0 0.5rem #102028;
   box-shadow: 0 0.5rem #102028;
+}
+@media (max-width: 700px) {
+  .player-picker-container .active-player {
+    padding: 1rem 0.5rem;
+  }
 }
 .player-picker-container__start-btn {
   border: none;
@@ -80,11 +100,22 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+@media (max-width: 700px) {
+  .player-picker-container__start-btn {
+    padding: 1rem 5rem;
+  }
+}
 
 .game-container {
   height: 100%;
   min-width: 50%;
   max-width: 50%;
+}
+@media (max-width: 700px) {
+  .game-container {
+    min-width: 90%;
+    max-width: 90%;
+  }
 }
 .game-container__player-top-bar {
   display: -webkit-box;
@@ -213,6 +244,12 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+@media (max-width: 700px) {
+  .bgs .box {
+    width: 90%;
+    height: 60%;
+  }
+}
 .bgs .box .wrapper {
   height: 100%;
   display: -webkit-box;
@@ -265,8 +302,18 @@ body {
   text-transform: uppercase;
   margin: 0 10px;
 }
+@media (max-width: 700px) {
+  .bgs span {
+    font-size: 20px;
+  }
+}
 .bgs img {
   width: 16%;
+}
+@media (max-width: 700px) {
+  .bgs img {
+    width: 12%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
