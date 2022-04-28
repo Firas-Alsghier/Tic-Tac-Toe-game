@@ -1,0 +1,272 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 300;
+  color: #a2bac3;
+  background: #18282f;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+.player-picker-container {
+  text-align: center;
+}
+.player-picker-container__player {
+  background: #1e343e;
+  -webkit-box-shadow: 0 0.7rem #102028;
+  box-shadow: 0 0.7rem #102028;
+  margin: 6rem 0;
+  width: 50rem;
+  padding: 1.5rem 0;
+  border-radius: 1rem;
+}
+.player-picker-container__title {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.player-picker-container__bg {
+  background: #18282f;
+  width: 95%;
+  height: 9rem;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  border-radius: 1rem;
+  margin: 3rem auto;
+}
+.player-picker-container__player-x, .player-picker-container__player-o {
+  cursor: pointer;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  width: 100px;
+}
+.player-picker-container .active-player {
+  background: #a2bac3;
+  padding: 0.7rem 1rem;
+  border-radius: 1.2rem;
+  -webkit-box-shadow: 0 0.5rem #102028;
+  box-shadow: 0 0.5rem #102028;
+}
+.player-picker-container__start-btn {
+  border: none;
+  background: #efb034;
+  padding: 1.5rem 13rem;
+  -webkit-box-shadow: 0 0.5rem #a87c24;
+  box-shadow: 0 0.5rem #a87c24;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: #18282f;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.game-container {
+  height: 100%;
+  min-width: 50%;
+  max-width: 50%;
+}
+.game-container__player-top-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.game-container__player-turn, .game-container__restart {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.game-container__player-turn {
+  background: #1e343e;
+  padding: 0.8rem 1.3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 0.7rem;
+  -webkit-box-shadow: 0 0.5rem #102028;
+  box-shadow: 0 0.5rem #102028;
+  font-weight: 700;
+  text-align: center;
+}
+.game-container__player-logo {
+  width: 20%;
+  margin-right: 0.4rem;
+}
+.game-container__restart-box {
+  padding: 0.8rem 1.3rem;
+  color: #18282f;
+  background: #a2bac3;
+  border: none;
+  border-radius: 0.7rem;
+  -webkit-box-shadow: 0 0.5rem #102028;
+  box-shadow: 0 0.5rem #102028;
+  cursor: pointer;
+}
+.game-container__restart-box i {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.game-container__grid-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 3rem 0;
+}
+.game-container__grid-box {
+  width: 10rem;
+  height: 10rem;
+  background: #1e343e;
+  -webkit-box-shadow: 0 0.7rem #102028;
+  box-shadow: 0 0.7rem #102028;
+  margin: 2rem 0;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+.game-container__player-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+.game-container__score {
+  width: 10rem;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  text-align: center;
+  color: white;
+}
+.game-container__score:first-of-type {
+  background: #31c4bc;
+}
+.game-container__score:nth-of-type(2) {
+  background: #a2bac3;
+}
+.game-container__score:last-of-type {
+  background: #efb034;
+}
+.game-container__score span {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.bgs {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+}
+.bgs .box {
+  width: 55%;
+  height: 55%;
+  -webkit-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background: #18282f;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.bgs .box .wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.bgs .box .wrapper h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.bgs .box .wrapper .restart {
+  font-size: 1.6rem;
+  padding: 15px 40px;
+  background: #efb034;
+  -webkit-box-shadow: 0 0.5rem #a87c24;
+  box-shadow: 0 0.5rem #a87c24;
+  border-radius: 1rem;
+  color: #18282f;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.bgs .box .wrapper .restart-game {
+  font-size: 1.6rem;
+  padding: 15px 40px;
+  background: #31c4bc;
+  -webkit-box-shadow: 0 0.5rem #1c5452;
+  box-shadow: 0 0.5rem #1c5452;
+  border-radius: 1rem;
+  color: #18282f;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 1.7rem;
+}
+.bgs span {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+.bgs img {
+  width: 16%;
+}
+
+/*# sourceMappingURL=main.css.map */

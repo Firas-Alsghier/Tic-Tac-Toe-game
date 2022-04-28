@@ -1,0 +1,293 @@
+@use './imports/index';
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 300;
+  color: index.$silver_color;
+  background: index.$background_color;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+.player-picker-container {
+  text-align: center;
+
+  &__player {
+    background: index.$player_state;
+    -webkit-box-shadow: 0 0.7rem index.$shadow_color;
+    box-shadow: 0 0.7rem index.$shadow_color;
+    margin: 6rem 0;
+    width: 50rem;
+    padding: 1.5rem 0;
+    border-radius: 1rem;
+  }
+
+  &__title {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+  }
+
+  &__bg {
+    background: index.$background_color;
+    width: 95%;
+    height: 9rem;
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    border-radius: 1rem;
+    margin: 3rem auto;
+  }
+
+  &__player-x,
+  &__player-o {
+    cursor: pointer;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    width: 100px;
+  }
+
+  .active-player {
+    background: index.$silver_color;
+    padding: 0.7rem 1rem;
+    border-radius: 1.2rem;
+    -webkit-box-shadow: 0 0.5rem index.$shadow_color;
+    box-shadow: 0 0.5rem index.$shadow_color;
+  }
+
+  &__start-btn {
+    border: none;
+    background: index.$o_color;
+    padding: 1.5rem 13rem;
+    -webkit-box-shadow: 0 0.5rem index.$btn_shadow;
+    box-shadow: 0 0.5rem index.$btn_shadow;
+    border-radius: 1rem;
+    font-size: 2rem;
+    color: index.$background_color;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.game-container {
+  height: 100%;
+  min-width: 50%;
+  max-width: 50%;
+
+  &__player-top-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+  &__player-turn,
+  &__restart {
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &__player-turn {
+    background: index.$player_state;
+    padding: 0.8rem 1.3rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 0.7rem;
+    -webkit-box-shadow: 0 0.5rem index.$shadow_color;
+    box-shadow: 0 0.5rem index.$shadow_color;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  &__player-logo {
+    width: 20%;
+    margin-right: 0.4rem;
+  }
+
+  &__restart-box {
+    padding: 0.8rem 1.3rem;
+    color: index.$background_color;
+    background: index.$silver_color;
+    border: none;
+    border-radius: 0.7rem;
+    -webkit-box-shadow: 0 0.5rem index.$shadow_color;
+    box-shadow: 0 0.5rem index.$shadow_color;
+    cursor: pointer;
+    i {
+      font-size: 2.2rem;
+      font-weight: bold;
+    }
+  }
+
+  &__grid-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 3rem 0;
+  }
+
+  &__grid-box {
+    width: 10rem;
+    height: 10rem;
+    background: index.$player_state;
+    -webkit-box-shadow: 0 0.7rem index.$shadow_color;
+    box-shadow: 0 0.7rem index.$shadow_color;
+    margin: 2rem 0;
+    border-radius: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__player-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+  }
+
+  &__score {
+    width: 10rem;
+    padding: 1rem 0;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+    &:first-of-type {
+      background: index.$x_color;
+    }
+    &:nth-of-type(2) {
+      background: index.$silver_color;
+    }
+    &:last-of-type {
+      background: index.$o_color;
+    }
+
+    span {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+    }
+  }
+}
+.bgs {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+
+  .box {
+    width: 55%;
+    height: 55%;
+    -webkit-box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    background: index.$background_color;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    .wrapper {
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      h2 {
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+      .restart {
+        font-size: 1.6rem;
+        padding: 15px 40px;
+        background: index.$o_color;
+        -webkit-box-shadow: 0 0.5rem index.$btn_shadow;
+        box-shadow: 0 0.5rem index.$btn_shadow;
+        border-radius: 1rem;
+        color: index.$background_color;
+        border: none;
+        outline: none;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .restart-game {
+        font-size: 1.6rem;
+        padding: 15px 40px;
+        background: index.$x_color;
+        -webkit-box-shadow: 0 0.5rem hsl(178, 50%, 22%);
+        box-shadow: 0 0.5rem hsl(178, 50%, 22%);
+        border-radius: 1rem;
+        color: index.$background_color;
+        border: none;
+        outline: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-top: 1.7rem;
+      }
+    }
+  }
+
+  span {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin: 0 10px;
+  }
+
+  img {
+    width: 16%;
+  }
+}
