@@ -1,3 +1,8 @@
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(new URL('/serviceWorker.js', import.meta.url), { type: 'module' });
+  });
+}
 // Defining The Variables
 const startBtn = document.getElementById('start-btn');
 const imgLogo = document.getElementById('img-logo');
@@ -72,8 +77,8 @@ startBtn.addEventListener('click', () => {
     PickerContainer.classList.add('hide');
     gameContainer.classList.remove('hide');
     gameContainer.classList.add('magictime', 'puffIn');
-    yourPlayerTurn = yourPlayer.src.slice(yourPlayer.src.indexOf('/images'), yourPlayer.src.indexOf('.svg'));
-    cpuPlayerTurn = cpuPlayer.src.slice(cpuPlayer.src.indexOf('/images'), cpuPlayer.src.indexOf('.svg'));
+    yourPlayerTurn = yourPlayer.src.slice(yourPlayer.src.indexOf('/'), yourPlayer.src.indexOf('.svg'));
+    cpuPlayerTurn = cpuPlayer.src.slice(cpuPlayer.src.indexOf('/'), cpuPlayer.src.indexOf('.svg'));
     imgLogo.src = yourPlayerTurn + '-outline.svg';
     getBoxNum(1);
   } else {
@@ -88,22 +93,11 @@ BoxContainer.addEventListener('click', (e) => {
     e.target.insertAdjacentHTML('afterbegin', yourPlayer.outerHTML);
     e.target.classList.add('you', 'magictime', 'vanishIn');
     e.target.classList.remove('free');
-    imgLogo.src = '../images/icon-o-outline.svg';
     imgLogo.src = cpuPlayerTurn + '-outline.svg';
     setTimeout(() => {
-      // Make The Cpu Select A Random Square To Mark Its Sign
+      // Make The Cpu Select A Random Square To Mark* Its Sign
       const freeSquares = document.querySelectorAll('.free');
       const randomSquares = Math.trunc(Math.random() * freeSquares.length);
-      if (freeSquares.length > 0) {
-        freeSquares[randomSquares].insertAdjacentHTML('afterbegin', cpuPlayer.outerHTML);
-        freeSquares[randomSquares].classList.add('cpu', 'magictime', 'vanishIn');
-        freeSquares[randomSquares].classList.remove('free');
-        imgLogo.src = yourPlayerTurn + '-outline.svg';
-      } else {
-        document.getElementById('winner-title').textContent = "It's a tie";
-        popUpWindow.classList.remove('hide');
-        playersTies.textContent = tiesCounter++;
-      }
       if (checkTheWinner(1, 2, 3, 'you') || checkTheWinner(4, 5, 6, 'you') || checkTheWinner(7, 8, 9, 'you') || checkTheWinner(1, 4, 7, 'you') || checkTheWinner(2, 5, 8, 'you') || checkTheWinner(3, 6, 9, 'you') || checkTheWinner(1, 5, 9, 'you') || checkTheWinner(7, 5, 3, 'you')) {
         winnerLogo.src = yourPlayerTurn + '-outline.svg';
         popUpWindow.classList.remove('hide');
@@ -112,6 +106,15 @@ BoxContainer.addEventListener('click', (e) => {
         winnerLogo.src = cpuPlayerTurn + '-outline.svg';
         popUpWindow.classList.remove('hide');
         document.getElementById(`${cpuPlayer.classList}-score`).textContent = cpuPlayerCounter++;
+      } else if (freeSquares.length > 0) {
+        freeSquares[randomSquares].insertAdjacentHTML('afterbegin', cpuPlayer.outerHTML);
+        freeSquares[randomSquares].classList.add('cpu', 'magictime', 'vanishIn');
+        freeSquares[randomSquares].classList.remove('free');
+        imgLogo.src = yourPlayerTurn + '-outline.svg';
+      } else {
+        document.getElementById('winner-title').textContent = "It's a tie";
+        popUpWindow.classList.remove('hide');
+        playersTies.textContent = tiesCounter++;
       }
     }, 850);
   }

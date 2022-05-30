@@ -1,24 +1,24 @@
 doctype html
 html(lang="en")
-	include ../pug/includes/head.pug
+	include includes/head
 	body
 		div(class="player-picker-container")
 			div(class="player-picker-container__player-logo")
-				img(src="../images/logo.svg", alt="Player Logo")
+				img(src="/images/logo.svg", alt="Player Logo")
 			div(class="player-picker-container__player")
 				h2(class="player-picker-container__title") Pick player 1’s mark
 				div(class="player-picker-container__bg")
 					div(class="player-picker-container__player-x")
-						img(src="../images/icon-x.svg", alt="Player X" ,class="player-x")
+						img(src="/images/icon-x.svg", alt="Player X" , onerror="/icon-x-outline.c3c82311.svg" ,class="player-x")
 					div(class="player-picker-container__player-o")
-						img(src="../images/icon-o.svg", alt="Player O", class="player-o")
+						img(src="/images/icon-o.svg", alt="Player O", onerror="/icon-o-outline.513aa494.svg", class="player-o")
 			button(class="player-picker-container__start-btn", id="start-btn") New game (vs cpu)
 		div(class="game-container hide")
 			div(class="game-container__player-top-bar")
 				div(class="game-container__game-logo")
-					img(src="../images/logo.svg", alt="Logo")
+					img(src="/images/logo.svg", alt="Logo")
 				div(class="game-container__player-turn")
-					div(class="game-container__player-state", id="player-turn") #[img(src="../images/icon-x-outline.svg", id="img-logo",  alt="player-state", class="game-container__player-logo")] turn
+					div(class="game-container__player-state", id="player-turn") #[img(src="/images/icon-x-outline.svg", id="img-logo",  alt="player-state", class="game-container__player-logo")] turn
 				div(class="game-container__restart")
 					button(class="game-container__restart-box", id="restart-game")
 						i(class="ph-arrow-clockwise")
@@ -43,9 +43,9 @@ html(lang="en")
 			div(class="box")
 				div(class="wrapper")
 					h2(id="winner")
-						img(id="winner-logo", alt='', src='')
+						img(id="winner-logo", alt='', src="/images/icon-o-outline.svg")
 						span(id="winner-title") Takes the round
 					button(id="restart-btn" class="restart") Restart
 					button(id="play-again-game-btn", class="restart-game") Play again 
 
-		script(src="./js/App.js") 
+		script(type="module", src="./js/App.js")

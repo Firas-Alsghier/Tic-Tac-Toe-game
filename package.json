@@ -2,14 +2,17 @@
   "name": "Tic-Tac-Toe-game",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Firas-Alsghier/Tic-Tac-Toe-game.git"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -18,8 +21,15 @@
   },
   "homepage": "https://github.com/Firas-Alsghier/Tic-Tac-Toe-game#readme",
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.6.0",
+    "@parcel/transformer-webmanifest": "^2.6.0",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.4.0",
+    "parcel": "^2.6.0",
     "prettier": "2.5.1"
+  },
+  "dependencies": {
+    "@parcel/service-worker": "^2.6.0",
+    "parcel-plugin-ignore-assets": "^1.0.0"
   }
 }
